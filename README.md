@@ -62,7 +62,7 @@ Objetivos secundários incluem:
 
 # Competências desenvolvidas
 
-## Fabio Hiromitsu Nawa (ST)
+## Gustavo Morais (PO)
 <details>
 
 ## Hard Skill (saber tecnológico)
@@ -103,7 +103,7 @@ Objetivos secundários incluem:
 
 </details>
 
-## Gustavo Felipe Morais (PO)
+## João Pedro Barni (SM)
 <details>
 
 ## Hard Skill (saber tecnológico)
@@ -182,7 +182,7 @@ Objetivos secundários incluem:
 </details>
 
 
-## João Barni (SM)
+## Fabio Hiromitsu Nawa (ST)
 <details>
 
 ## Hard Skill (saber tecnológico)
