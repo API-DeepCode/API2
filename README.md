@@ -64,19 +64,13 @@ Objetivos secundários incluem:
 
 | Prioridade | User Stories | Estimativa | Sprint |
 | --------- | ------------- | ---------- | ------ |
-| Alta | Como visitante do site eu quero um conteúdo inicial para saber o básico sobre metodologia ágil e Scrum | 5 | 1 |
-| Alta | Como cliente eu quero um design no figma para ter noção do design final | 3 | 1 |
-| Alta | Como cliente eu quero um protótipo do questionário para ter uma ideia de como ficará no final | 3 | 1 |
-| Alta | Como cliente eu quero um protótipo da página Home para ter noção de como será estruturada | 1 | 1 |
-| Média | Como visitante do site eu quero um questionário para confirmar meu entendimento sobre o assunto | 4 | 2 |
-| Média | Como visitante do site eu quero uma revisão após os questionários, assim eu sei o que errei e o que preciso estudar novamente | 3 | 2 |
-| Média | Como visitante do site eu quero uma interface organizada para conseguir encontrar o que preciso facilmente | 6 | 2 |
-| Média | Como cliente eu quero uma página Home para ter uma ideia geral do que esperar do site | 4 | 2 |
-| Média | Como visitante do site eu quero questões do diversos níveis para testar o conhecimento com perguntas fáceis, médias e difíceis | 4 | 2 |
-| Média | Como visitante do site eu quero um conteúdo intermediário para conseguir me aprofundar | 4 | 2 |
-| Média | Como cliente eu quero o site totalmente funcional, sem erros para que os usuários não tenham problemas | 6 | 3 |
-| Média | Como cliente eu quero o site hospedado na AWS para que meus funcionários e clientes consigam acessar o site a qualquer hora em qualquer lugar | 4 | 3 |
-| Baixa | Como cliente eu quero o site todos os módulos responsivos para que seja acessível em qualquer plataforma | 3 | 3 |
+| Alta | Como usuário, quero uma IDE simples onde eu possa digitar meu código em Python. | 2 | 1 |
+| Alta | Como usuário, quero que essa IDE seja integrada a uma IA para corrigir códigos em Python, sugerindo formas de completá-los. | 3 | 1 |
+| Alta | Como usuário, quero um botão que execute a ação de enviar minha pergunta para a IA. | 4 | 1 |
+| Alta | Como usuário, quero ver a resposta da IA em uma caixa de texto separada do código que escrevi. | 5 | 1 |
+| Média | Como usuário, quero que a IDE possua uma interface intuitiva, fácil de usar e que facilite a navegação e interação com suas funcionalidades. | 2 | 2 |
+| Baixa | Como usuário, quero que a IDE armazene as perguntas que faço e as sugestões fornecidas pela IA em um banco de dados. | 2 | 3 |
+| Baixa | Como usuário, quero poder acessar essas sugestões armazenadas. | 3 | 3 |
 
 # Competências desenvolvidas
 
