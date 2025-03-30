@@ -58,6 +58,20 @@ Objetivos secundários incluem:
 - Metodologia de Desenvolvimento: **SCRUM**
 - Ferramentas de Design: **Figma**
 
+## Tecnologias Utilizadas
+<p align="left">
+    <ul>
+      <li>  
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg" width="80px" />  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" width="80px" /> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="80px" />
+      </li>
+      <li>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" width="80px" /> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" width="80px"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original-wordmark.svg" width="80px" />
+      </li>
+   </ul>
+</p>
+
+
+
 # Backlog do produto
 
 | Prioridade | User Stories | Estimativa | Sprint |
