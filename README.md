@@ -59,6 +59,9 @@ Objetivos secundários incluem:
 - Ferramentas de Design: **Figma**
 - Gerenciamento de Equipe: **Jira Softtware**
 
+# MVP 
+
+![Image](https://github.com/user-attachments/assets/b74d5ef4-5968-48a1-9348-42ac37b4f8d6)
 
 # Backlog do produto
 
