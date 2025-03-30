@@ -65,7 +65,7 @@ Objetivos secundários incluem:
 | Prioridade | User Stories | Estimativa | Sprint |
 | --------- | ------------- | ---------- | ------ |
 | Alta | Como usuário, quero uma IDE simples onde eu possa digitar meu código em Python. | 2 | 1 |
-| Alta | Como usuário, quero que essa IDE seja integrada a uma IA para corrigir códigos em Python, sugerindo formas de completá-los. | 3 | 1 |
+| Alta | Como usuário, quero que a IDE seja integrada a uma IA capaz de corrigir códigos em Python, sugerir maneiras de auxiliar o desenvolvedor, completar trechos de código e oferecer recomendações de melhorias. | 3 | 1 |
 | Alta | Como usuário, quero um botão que execute a ação de enviar minha pergunta para a IA. | 4 | 1 |
 | Alta | Como usuário, quero ver a resposta da IA em uma caixa de texto separada do código que escrevi. | 5 | 1 |
 | Média | Como usuário, quero que a IDE possua uma interface intuitiva, fácil de usar e que facilite a navegação e interação com suas funcionalidades. | 2 | 2 |
