@@ -58,7 +58,23 @@ Objetivos secundários incluem:
 - Metodologia de Desenvolvimento: **SCRUM**
 - Ferramentas de Design: **Figma**
 
-# Backlog do Produto
+# Backlog do produto
+
+| Prioridade | User Stories | Estimativa | Sprint |
+| --------- | ------------- | ---------- | ------ |
+| Alta | Como visitante do site eu quero um conteúdo inicial para saber o básico sobre metodologia ágil e Scrum | 5 | 1 |
+| Alta | Como cliente eu quero um design no figma para ter noção do design final | 3 | 1 |
+| Alta | Como cliente eu quero um protótipo do questionário para ter uma ideia de como ficará no final | 3 | 1 |
+| Alta | Como cliente eu quero um protótipo da página Home para ter noção de como será estruturada | 1 | 1 |
+| Média | Como visitante do site eu quero um questionário para confirmar meu entendimento sobre o assunto | 4 | 2 |
+| Média | Como visitante do site eu quero uma revisão após os questionários, assim eu sei o que errei e o que preciso estudar novamente | 3 | 2 |
+| Média | Como visitante do site eu quero uma interface organizada para conseguir encontrar o que preciso facilmente | 6 | 2 |
+| Média | Como cliente eu quero uma página Home para ter uma ideia geral do que esperar do site | 4 | 2 |
+| Média | Como visitante do site eu quero questões do diversos níveis para testar o conhecimento com perguntas fáceis, médias e difíceis | 4 | 2 |
+| Média | Como visitante do site eu quero um conteúdo intermediário para conseguir me aprofundar | 4 | 2 |
+| Média | Como cliente eu quero o site totalmente funcional, sem erros para que os usuários não tenham problemas | 6 | 3 |
+| Média | Como cliente eu quero o site hospedado na AWS para que meus funcionários e clientes consigam acessar o site a qualquer hora em qualquer lugar | 4 | 3 |
+| Baixa | Como cliente eu quero o site todos os módulos responsivos para que seja acessível em qualquer plataforma | 3 | 3 |
 
 # Competências desenvolvidas
 
