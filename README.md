@@ -19,8 +19,8 @@ Projeto pedagógico alicerçado na Metodologia API para ensino-aprendizado focad
 Sprint | Previsão | Status|
 |------|--------|------|
 |Kick Off geral | 24/02/25 a 28/02 | Concluído |
-|Sprint 01 | 10/03/25 a 30/03/25 | Em Progresso |
-|Sprint 01 Review | 31/03/25 a 04/04/25 | a fazer  |
+|Sprint 01 | 10/03/25 a 30/03/25 | Concluído |
+|Sprint 01 Review | 31/03/25 a 04/04/25 | Em progesso |
 |Sprint 02| 07/04/25 a 27/04/25 | a fazer  |
 |Sprint 02 Review | 28/04/25 a 02/05/25 | a fazer  |
 |Sprint 03| 05/05/25 a 25/05/25 | a fazer  |
