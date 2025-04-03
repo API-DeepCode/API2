@@ -1,4 +1,9 @@
-<img src="https://github.com/user-attachments/assets/43d7019a-4759-4760-8e50-1bdffdce19e8" width="69">  `#DeepCode`
+ <h1 align = center >DeepCode<h1>
+   <br>
+   <p align = "center">
+     <img src="https://github.com/user-attachments/assets/43d7019a-4759-4760-8e50-1bdffdce19e8" align = center width="400"> 
+   </p>
+
 <br>
 Repositório do grupo de API dos alunos da `Faculdade de Tecnologia - São José dos Campos - Prof. Jessen Vidal` -  DeepCode
 
