@@ -51,7 +51,7 @@ Objetivos secundários incluem:
 
 # MVP 
 
-![Image](https://github.com/user-attachments/assets/b74d5ef4-5968-48a1-9348-42ac37b4f8d6)
+![Image](https://github.com/user-attachments/assets/39feb453-5fb9-435e-865c-52a7e50c49d5)
 
 # Backlog do produto
 
