@@ -107,13 +107,112 @@ Objetivos secundários incluem:
 | Alta | Como usuário, quero ver a resposta da IA em uma caixa de texto separada do código que escrevi. | 5 | 1 |
 
 # Autores
-|    Função     | Nome                                  |                                                                                                                                                      LinkedIn & GitHub                                                                                                                                                      |
-| :-----------: | :------------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| Product Owner | Gustavo Felipe Morais |      [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/gustavo-felipe-morais-a6517b327/) [![GitHub Badge](https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white)](https://github.com/gutibrk74) |
-| Scrum Master  | Celso Freitas |         [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/celso-moreira-freitas-957832222/) [![GitHub Badge](https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white)](https://github.com/yCels) |
-| Team Member   | Fabio Hiromitsu Nawa |     [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/f%C3%A1biohnawa/) [![GitHub Badge](https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white)](https://github.com/TechSDW) |
-|  Team Member  | Nícolas Ferreira Fernandes |         [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/nicolas-ferreira-fernandes/) [![GitHub Badge](https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white)](https://github.com/nicolasffe) |
-|  Team Member  | Josué Lopes |   [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](<!--Coloca seu Linkedin aqui --!>) [![GitHub Badge](https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white)](<!--Coloca seu Github aqui--!>) |
-|  Team Member  | Pedro Soares |           [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/pedro-soares-276206292/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app) [![GitHub Badge](https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white)](https://github.com/pdrsoares) |
-|  Team Member  | João Pedro Barni |           [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/joao-pedro-barni-lima/) [![GitHub Badge](https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white)](https://github.com/Barni-i) |
-| Team Member   | Luiz Briz |         [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/luiz-briz-15225b303/) [![GitHub Badge](https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white)](https://github.com/HerrBriz) |
+<div align="center">
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Função</th>
+        <th>Nome</th>
+        <th>LinkedIn & GitHub</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Product Owner</td>
+        <td>Gustavo Felipe Morais</td>
+        <td>
+          <a href="https://www.linkedin.com/in/gustavo-felipe-morais-a6517b327/">
+            <img src="https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white">
+          </a>
+          <a href="https://github.com/gutibrk74">
+            <img src="https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white">
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>Scrum Master</td>
+        <td>Celso Freitas</td>
+        <td>
+          <a href="https://www.linkedin.com/in/celso-moreira-freitas-957832222/">
+            <img src="https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white">
+          </a>
+          <a href="https://github.com/yCels">
+            <img src="https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white">
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>Team Member</td>
+        <td>Fabio Hiromitsu Nawa</td>
+        <td>
+          <a href="https://www.linkedin.com/in/f%C3%A1biohnawa/">
+            <img src="https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white">
+          </a>
+          <a href="https://github.com/TechSDW">
+            <img src="https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white">
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>Team Member</td>
+        <td>Nícolas Ferreira Fernandes</td>
+        <td>
+          <a href="https://www.linkedin.com/in/nicolas-ferreira-fernandes/">
+            <img src="https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white">
+          </a>
+          <a href="https://github.com/nicolasffe">
+            <img src="https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white">
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>Team Member</td>
+        <td>Josué Lopes</td>
+        <td>
+          <a href="#">
+            <img src="https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white">
+          </a>
+          <a href="#">
+            <img src="https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white">
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>Team Member</td>
+        <td>Pedro Soares</td>
+        <td>
+          <a href="https://www.linkedin.com/in/pedro-soares-276206292/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app">
+            <img src="https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white">
+          </a>
+          <a href="https://github.com/pdrsoares">
+            <img src="https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white">
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>Team Member</td>
+        <td>João Pedro Barni</td>
+        <td>
+          <a href="https://www.linkedin.com/in/joao-pedro-barni-lima/">
+            <img src="https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white">
+          </a>
+          <a href="https://github.com/Barni-i">
+            <img src="https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white">
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>Team Member</td>
+        <td>Luiz Briz</td>
+        <td>
+          <a href="https://www.linkedin.com/in/luiz-briz-15225b303/">
+            <img src="https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white">
+          </a>
+          <a href="https://github.com/HerrBriz">
+            <img src="https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white">
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
