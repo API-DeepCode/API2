@@ -43,12 +43,11 @@ Objetivos secundários incluem:
 
 
 # Tecnologias Utilizadas
-- Linguagem de Programação: **Java Desktop**, **Json**
-- Banco de Dados: **MySQL**
-- Controle de Versão: **GitHub**
-- Metodologia de Desenvolvimento: **SCRUM**
-- Ferramentas de Design: **Figma**
-- Gerenciamento de Equipe: **Jira Softtware**
+<br> 
+
+![Image](https://github.com/user-attachments/assets/48b10ee0-4dd3-4a84-a6f0-b9d66957b475)
+
+<br>
 
 # MVP 
 
