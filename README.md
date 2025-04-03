@@ -1,4 +1,4 @@
-## DeepCode https://github.com/API-DeepCode/API2/issues/2#issue-2970637869
+## DeepCode ![image](https://github.com/API-DeepCode/API2/issues/2#issue-2970637869)
 Repositório do grupo de API dos alunos da `Faculdade de Tecnologia - São José dos Campos - Prof. Jessen Vidal` -  DeepCode
 
 # Aprendizado por Projeto Integrado (API)
