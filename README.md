@@ -23,28 +23,58 @@ Projeto baseado na metodologia ágil SCRUM, procurando desenvolver a Proatividad
 # Projeto (API)
 Projeto pedagógico alicerçado na Metodologia API para ensino-aprendizado focado no desenvolvimento de competências e fundamentada nos pilares de aprendizado com problemas reais (RPBL), validação externa e mentalidade ágil. Uso de estratégias para entender o problema, conceber uma solução viável ao desenvolver e implementar o MVP seguido de sua operação (CDIO). Os resultados dos projetos devem obedecer ao Aviso Legal disponível no site da Fatec SJC com definição das datas do kickoff e das sprints.
 
-<p align = center>
-
 <p align="center">
-  <table>
+<table border="1">
+  <thead>
     <tr>
-      <td>Coluna 1</td>
-      <td>Coluna 2</td>
+      <th>Sprint</th>
+      <th>Previsão</th>
+      <th>Status</th>
     </tr>
-  </table>
-</p>
- 
-Sprint | Previsão | Status|
-|------|--------|------|
-|Kick Off geral | 24/02/25 a 28/02 | Concluído |
-|Sprint 01 | 10/03/25 a 30/03/25 | Concluído |
-|Sprint 01 Review | 31/03/25 a 04/04/25 | Em progesso |
-|Sprint 02| 07/04/25 a 27/04/25 | a fazer  |
-|Sprint 02 Review | 28/04/25 a 02/05/25 | a fazer  |
-|Sprint 03| 05/05/25 a 25/05/25 | a fazer  |
-|Sprint 03 Review | 26/05/25 a 28/05/25 | a fazer  |
-|Feira de Soluções| 29/05/25 | a fazer  |
- 
+  </thead>
+  <tbody>
+    <tr>
+      <td>Kick Off geral</td>
+      <td>24/02/25 a 28/02</td>
+      <td>Concluído</td>
+    </tr>
+    <tr>
+      <td>Sprint 01</td>
+      <td>10/03/25 a 30/03/25</td>
+      <td>Concluído</td>
+    </tr>
+    <tr>
+      <td>Sprint 01 Review</td>
+      <td>31/03/25 a 04/04/25</td>
+      <td>Em progresso</td>
+    </tr>
+    <tr>
+      <td>Sprint 02</td>
+      <td>07/04/25 a 27/04/25</td>
+      <td>A fazer</td>
+    </tr>
+    <tr>
+      <td>Sprint 02 Review</td>
+      <td>28/04/25 a 02/05/25</td>
+      <td>A fazer</td>
+    </tr>
+    <tr>
+      <td>Sprint 03</td>
+      <td>05/05/25 a 25/05/25</td>
+      <td>A fazer</td>
+    </tr>
+    <tr>
+      <td>Sprint 03 Review</td>
+      <td>26/05/25 a 28/05/25</td>
+      <td>A fazer</td>
+    </tr>
+    <tr>
+      <td>Feira de Soluções</td>
+      <td>29/05/25</td>
+      <td>A fazer</td>
+    </tr>
+  </tbody>
+</table>
 </p>
 
 # Objetivo do Projeto
