@@ -36,8 +36,6 @@ Objetivos secundários incluem:
 - Organização e estruturação das informações do projeto.
 
 
-- Privacidade de dados (não utilizar API externa).
-
 # Tecnologias Utilizadas
 - Linguagem de Programação: **Java Desktop**, **Json**
 - Banco de Dados: **MySQL**
