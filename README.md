@@ -44,9 +44,9 @@ Objetivos secundários incluem:
 
 # Tecnologias Utilizadas
 <br> 
-
+<p align = "center"> 
 ![Image](https://github.com/user-attachments/assets/ac20b51e-e781-449d-98e9-df6e44d9c75f)
-
+</p>
 <br>
 
 # MVP 
