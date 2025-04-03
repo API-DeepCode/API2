@@ -1,4 +1,5 @@
-# DeepCode <img src="https://github.com/user-attachments/assets/43d7019a-4759-4760-8e50-1bdffdce19e8" width="38">
+# DeepCode
+<img src="https://github.com/user-attachments/assets/43d7019a-4759-4760-8e50-1bdffdce19e8" width="69">
 
 Repositório do grupo de API dos alunos da `Faculdade de Tecnologia - São José dos Campos - Prof. Jessen Vidal` -  DeepCode
 
