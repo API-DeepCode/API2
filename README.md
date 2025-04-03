@@ -35,20 +35,7 @@ Objetivos secundários incluem:
 - Facilitação do compartilhamento e feedback entre desenvolvedores.
 - Organização e estruturação das informações do projeto.
 
-# Requisitos do Projeto
 
-### Requisitos Funcionais:
-- Sugerir formas de completar código do desenvolvedor.
-- Gerar código fonte.
-- Executar código.
-- Gerar documentação de código.
-- Auxiliar o desenvolvedor na compreensão de código.
-- Criar testes automatizados.
-- Integrar a IDE com repositório GitHub.
-- Fazer recomendações personalizadas de código.
-
-### Requisitos Não Funcionais:
-- Interface minimalista e intuitiva.
 - Privacidade de dados (não utilizar API externa).
 
 # Tecnologias Utilizadas
