@@ -1,7 +1,7 @@
  <h1 align = center >DeepCode<h1>
    <br>
    <p align = "center">
-     <img src="https://github.com/user-attachments/assets/43d7019a-4759-4760-8e50-1bdffdce19e8" align = center width="400"> 
+     <img src="https://github.com/user-attachments/assets/38e454bc-5286-471b-9e7d-9ea8b7e16da4" align = center width="400"> 
    </p>
 
 <br>
