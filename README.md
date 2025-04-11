@@ -46,12 +46,12 @@ Projeto pedagógico alicerçado na Metodologia API para ensino-aprendizado focad
     <tr>
       <td>Sprint 01 Review</td>
       <td>31/03/25 a 04/04/25</td>
-      <td>Em progresso</td>
+      <td>A fazer</td>
     </tr>
     <tr>
       <td>Sprint 02</td>
       <td>07/04/25 a 27/04/25</td>
-      <td>A fazer</td>
+      <td>Em progresso</td>
     </tr>
     <tr>
       <td>Sprint 02 Review</td>
