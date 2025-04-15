@@ -89,7 +89,7 @@ Objetivos secundários incluem:
 # Tecnologias Utilizadas
 <br> 
 <p align = "center"> 
-<img src ="https://github.com/user-attachments/assets/a406d43b-47d9-493e-86b8-7a2464b7ae42">
+<img src ="https://github.com/user-attachments/assets/087fde20-0742-4b11-868a-eceb9c84f67f">
 </p>
 <br>
 
@@ -105,6 +105,12 @@ Objetivos secundários incluem:
 | Alta | Como usuário, quero que a IDE seja integrada a uma IA capaz de corrigir códigos em Python, sugerir maneiras de auxiliar o desenvolvedor, completar trechos de código e oferecer recomendações de melhorias. | 3 | 1 |
 | Alta | Como usuário, quero um botão que execute a ação de enviar minha pergunta para a IA. | 4 | 1 |
 | Alta | Como usuário, quero ver a resposta da IA em uma caixa de texto separada do código que escrevi. | 5 | 1 |
+| Media | Como usuário, quero que a IDE possua uma interface intuitiva, fácil de usar e que facilite a navegação e interação com suas funcionalidades. | 5 | 2 |
+| Baixa | Como usuário, quero que a IDE armazene as perguntas que faço e as sugestões fornecidas pela IA em um banco de dados. | 2 | 3 |
+| Baixa | Como usuário, quero poder acessar essas sugestões armazenadas. | 3 | 3 |
+| Baixa | Como usuário, quero um tutorial para a instalação do projeto. | 2 | 3 |
+
+
 
 # Autores
 <div align="center">
