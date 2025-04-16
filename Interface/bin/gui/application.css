@@ -1,0 +1,7 @@
+.text-area {
+    -fx-background-color: #1e1e1e;  /* Cor de fundo */
+    -fx-border-color: #007acc;      /* Cor da borda */
+    -fx-border-radius: 5px;         /* Arredondamento da borda */
+    -fx-font-size: 14px;            /* Tamanho da fonte */
+    -fx-padding: 5px;               /* Espaçamento interno */
+}
