@@ -7,47 +7,66 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
-
-import application.IA;
+import javafx.scene.control.Label;
 
 public class Main extends Application {
 
-    public void start(Stage TelaPrincipal) {
-        // Criando um TextArea para o usuário digitar código
+    public void start(Stage primaryStage) {
+        // ======= Tela 1: Envio de Código =======
         TextArea codeArea = new TextArea();
         codeArea.setPrefSize(600, 400);
 
-        // Botão para enviar o código para a IA
         Button btnSendCode = new Button("Enviar código");
 
+        VBox tela1 = new VBox(15, new Label("Digite seu código abaixo:"), codeArea, btnSendCode);
+        tela1.setPadding(new Insets(20));
+
+        Scene scene1 = new Scene(tela1, 800, 600);
+        scene1.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+
+        // ======= Tela 2: Resposta da IA =======
         TextArea answerArea = new TextArea();
         answerArea.setPrefSize(600, 400);
         answerArea.setEditable(false);
-        
-        // Criando a página principal
-        VBox root = new VBox(codeArea, btnSendCode, answerArea);
-        VBox.setMargin(codeArea, new Insets(10, 20, 10, 20));
 
-        // Criando a cena
-        Scene scene = new Scene(root, 800, 600);
-        scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+        Button salvarButton = new Button("Salvar resposta");
+        Button voltarButton = new Button("Voltar");
 
-        // Funcionalidade do botão btnSendCode
+        VBox tela2 = new VBox(15,
+            new Label("Resposta da IA:"),
+            answerArea,
+            salvarButton,
+            voltarButton
+        );
+        tela2.setPadding(new Insets(20));
+
+        Scene scene2 = new Scene(tela2, 800, 600);
+        scene2.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+
+        // ======= Ações dos botões =======
         btnSendCode.setOnAction(event -> {
             String codigo = codeArea.getText();
 
-            // Criando o objeto Texto para transformar em linha única
             Texto texto1 = new Texto();
-            texto1.setTexto(codigo);  // Converte o código em linha única
-            
-            IA.respostaIA(texto1.getTexto());
-            answerArea.setText(IA.respostaIA(texto1.getTexto()));
+            texto1.setTexto(codigo);
+
+            String resposta = IA.respostaIA(texto1.getTexto());
+            answerArea.setText(resposta);
+
+            primaryStage.setScene(scene2);
         });
 
-        // Configurando o palco (janela)
-        TelaPrincipal.setTitle("DeepCode");
-        TelaPrincipal.setScene(scene);
-        TelaPrincipal.show();
+        voltarButton.setOnAction(e -> primaryStage.setScene(scene1));
+
+        salvarButton.setOnAction(e -> {
+            // Futuramente: abrir tela com nome e data para salvar no banco
+            System.out.println("Botão de salvar clicado!");
+        });
+
+        // ======= Configuração da Janela =======
+        primaryStage.setTitle("DeepCode");
+        primaryStage.setScene(scene1);
+        primaryStage.show();
     }
 
     public static void main(String[] args) {
