@@ -7,6 +7,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JSON"/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/eumermo/Desktop/javafx-sdk-24.0.1/lib/jfx.incubator.richtext.jar"/>
 	<classpathentry kind="lib" path="C:/Users/eumermo/Desktop/javafx-sdk-24.0.1/lib/javafx.base.jar"/>
 	<classpathentry kind="lib" path="C:/Users/eumermo/Desktop/javafx-sdk-24.0.1/lib/javafx.controls.jar"/>
@@ -19,5 +20,9 @@
 	<classpathentry kind="lib" path="C:/Users/eumermo/Desktop/javafx-sdk-24.0.1/lib/jdk.jsobject.jar"/>
 	<classpathentry kind="lib" path="C:/Users/eumermo/Desktop/javafx-sdk-24.0.1/lib/jfx.incubator.input.jar"/>
 	<classpathentry kind="lib" path="C:/Users/eumermo/Desktop/json/json-20230227.jar"/>
+=======
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javafx"/>
+	<classpathentry kind="lib" path="C:/Users/nicol/Downloads/json-20240303.jar"/>
+>>>>>>> 5e23b6ec9496def86574ced5fed3ed4077cf88ef
 	<classpathentry kind="output" path="bin"/>
 </classpath>
