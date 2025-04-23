@@ -15,10 +15,12 @@
     -fx-padding: 10px;
 }
 
+
 .text-area:readonly {
     -fx-border-color: #6a0dad;
     -fx-text-fill: #cccccc;
 }
+
 
 .button {
     -fx-background-color: #a64aff;
@@ -28,6 +30,7 @@
     -fx-cursor: hand;
     -fx-padding: 8px 16px;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.4), 6, 0, 0, 2);
+
 }
 
 .button:hover {

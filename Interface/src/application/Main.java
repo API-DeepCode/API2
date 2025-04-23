@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import javafx.geometry.Insets;
+
 import javafx.geometry.Pos;
 
 import java.io.FileWriter;
@@ -19,6 +20,7 @@ public class Main extends Application {
 
     private Label dataHoraLabel = new Label(); // Label que mostra a data/hora atual
     private String dataFormatada = "";
+
 
     public void start(Stage primaryStage) {
         // ======= Tela 1: Envio de Código =======
@@ -48,11 +50,13 @@ public class Main extends Application {
         VBox tela2 = new VBox(15,
             tituloResposta,
             dataHoraLabel,
+
             answerArea,
             salvarButton,
             voltarButton
         );
         tela2.setPadding(new Insets(20));
+
 
         Scene scene2 = new Scene(tela2, 800, 600);
         scene2.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
@@ -75,12 +79,14 @@ public class Main extends Application {
                 dataHoraLabel.setText("Data: " + dataFormatada);
             }
 
+
             primaryStage.setScene(scene2);
         });
 
         voltarButton.setOnAction(e -> primaryStage.setScene(scene1));
 
         salvarButton.setOnAction(e -> {
+
             Stage salvarStage = new Stage();
             salvarStage.initModality(Modality.APPLICATION_MODAL);
             salvarStage.setTitle("Salvar resposta da IA");
@@ -117,6 +123,7 @@ public class Main extends Application {
 
             salvarStage.setScene(salvarScene);
             salvarStage.showAndWait();
+
         });
 
         // ======= Configuração da Janela =======
