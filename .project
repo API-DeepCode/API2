@@ -3,6 +3,7 @@
 	<name>API2</name>
 	<comment></comment>
 	<projects>
+		<project>Interface</project>
 	</projects>
 	<buildSpec>
 	</buildSpec>
