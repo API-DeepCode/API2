@@ -98,18 +98,21 @@ public class Main extends Application {
             Button btnConfirmar = new Button("Confirmar");
 
             btnConfirmar.setOnAction(evt -> {
-                String nome = txtNome.getText().trim();
-                if (!nome.isEmpty()) {
-                    try (FileWriter writer = new FileWriter(nome + ".txt")) {
-                        writer.write("Data: " + dataFormatada + "\n\n");
-                        writer.write("Resposta da IA:\n");
-                        writer.write(answerArea.getText());
-                        writer.write("\n\n---\nSalvo em: " + dataFormatada);
-                        System.out.println("Resposta salva como " + nome + ".txt");
-                        salvarStage.close();
-                    } catch (IOException ex) {
-                        System.err.println("Erro ao salvar: " + ex.getMessage());
-                    }
+                String titulo = txtNome.getText().trim();
+                String pergunta = codeArea.getText(); 
+                String respostaIA = answerArea.getText();
+
+                if (!titulo.isEmpty() && !respostaIA.isEmpty()) {
+
+                    HistoricoDAO historicoDAO = new HistoricoDAO();
+                    historicoDAO.salvarHistorico(titulo, pergunta, respostaIA); 
+
+                    System.out.println("Resposta salva no banco de dados com o título: " + titulo);
+
+                    
+                    salvarStage.close();
+                } else {
+                    System.out.println("Título ou resposta não podem estar vazios.");
                 }
             });
 

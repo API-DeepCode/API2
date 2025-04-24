@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
 
 import application.IA;
 
-public class Main extends Application {
+public class apinico extends Application {
 
     public void start(Stage TelaPrincipal) {
         // Criando um TextArea para o usuário digitar código
@@ -42,7 +42,10 @@ public class Main extends Application {
             
             IA.respostaIA(texto1.getTexto());
             answerArea.setText(IA.respostaIA(texto1.getTexto()));
+            
         });
+        
+        
 
         // Configurando o palco (janela)
         TelaPrincipal.setTitle("DeepCode");
