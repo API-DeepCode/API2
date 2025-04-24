@@ -1,141 +1,150 @@
 package application;
-
 import javafx.application.Application;
-import javafx.stage.Stage;
-import javafx.stage.Modality;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.VBox;
-import javafx.scene.layout.HBox;
-import javafx.geometry.Insets;
-
-import javafx.geometry.Pos;
-
+import javafx.scene.layout.*;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
 public class Main extends Application {
+   private VBox bancoDeDadosSidebar;
+   private boolean sidebarVisivel = false;
+   private double larguraPadrao = 800;
+   private double alturaPadrao = 600;
+   private String dataFormatada = "";
+   private void toggleSidebar(BorderPane layout) {
+       if (sidebarVisivel) {
+           layout.setLeft(null);
+           layout.setPrefWidth(larguraPadrao);
+       } else {
+           layout.setLeft(bancoDeDadosSidebar);
+           layout.setPrefWidth(larguraPadrao);
+       }
+       sidebarVisivel = !sidebarVisivel;
+   }
+   private VBox criarSidebar() {
+       VBox sidebar = new VBox(10);
+       sidebar.setPadding(new Insets(15));
+       sidebar.setStyle("-fx-background-color: #2d2d2d; -fx-pref-width: 250px;");
+       sidebar.getChildren().add(new Label("Respostas salvas (simulado):"));
+       // Simula arquivos salvos
+       for (int i = 1; i <= 5; i++) {
+           sidebar.getChildren().add(new Label("resposta_" + i + ".txt"));
+       }
+       return sidebar;
+   }
+   @Override
+   public void start(Stage primaryStage) {
+       bancoDeDadosSidebar = criarSidebar();
+       // ========== Tela 1: Enviar Código ==========
+       TextArea codeArea = new TextArea();
+       codeArea.setPromptText("Digite seu código Java aqui...");
+       VBox.setVgrow(codeArea, Priority.ALWAYS);
+       codeArea.setMaxHeight(Double.MAX_VALUE);
+       codeArea.setMaxWidth(Double.MAX_VALUE);
+       Button btnSendCode = new Button("Enviar código");
+       Button btnMenu1 = new Button("☰");
+       btnMenu1.setStyle("-fx-font-size: 20px; -fx-background-color: transparent; -fx-text-fill: white;");
+       HBox topo1 = new HBox(btnMenu1);
+       topo1.setAlignment(Pos.TOP_LEFT);
+       VBox center1 = new VBox(10, new Label("Código Java:"), codeArea, btnSendCode);
+       center1.setPadding(new Insets(20));
+       BorderPane layout1 = new BorderPane();
+       layout1.setTop(topo1);
+       layout1.setCenter(center1);
+       Scene scene1 = new Scene(layout1, larguraPadrao, alturaPadrao);
+       scene1.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+       // ========== Tela 2: Resposta da IA ==========
+       TextArea answerArea = new TextArea();
+       answerArea.setEditable(false);
+       answerArea.setEditable(false);
+       answerArea.setWrapText(true);
+       VBox.setVgrow(answerArea, Priority.ALWAYS);
+       answerArea.setMaxHeight(Double.MAX_VALUE);
+       answerArea.setMaxWidth(Double.MAX_VALUE);
+       Button btnSalvar = new Button("Salvar resposta");
+       Button btnVoltar = new Button("Voltar");
+       Button btnMenu2 = new Button("☰");
+       btnMenu2.setStyle("-fx-font-size: 20px; -fx-background-color: transparent; -fx-text-fill: white;");
+       Label dataHoraLabel = new Label();
+       dataHoraLabel.setStyle("-fx-text-fill: #999999; -fx-font-size: 12px;");
+       VBox center2 = new VBox(10, new Label("Resposta da IA:"), dataHoraLabel, answerArea, btnSalvar, btnVoltar);
+       center2.setPadding(new Insets(20));
+       BorderPane layout2 = new BorderPane();
+       layout2.setTop(new HBox(btnMenu2));
+       layout2.setCenter(center2);
+       Scene scene2 = new Scene(layout2, larguraPadrao, alturaPadrao);
+       scene2.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+       // ========== Ações ==========
+       btnSendCode.setOnAction(e -> {
+           String codigo = codeArea.getText().trim();
+           Texto texto = new Texto();
+           texto.setTexto(codigo);
+           String resposta = IA.respostaIA(texto.getTexto());
+           answerArea.setText(resposta);
+           dataFormatada = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
+           dataHoraLabel.setText("Data: " + dataFormatada);
+           layout2.setLeft(null);
+           sidebarVisivel = false;
+           primaryStage.setScene(scene2);
+       });
+       btnVoltar.setOnAction(e -> {
+           layout1.setLeft(null);
+           sidebarVisivel = false;
+           primaryStage.setScene(scene1);
+       });
+      btnSalvar.setOnAction(e -> {
 
-    private Label dataHoraLabel = new Label(); // Label que mostra a data/hora atual
-    private String dataFormatada = "";
+           Stage salvarStage = new Stage();
+           salvarStage.initModality(Modality.APPLICATION_MODAL);
+           salvarStage.setTitle("Salvar resposta da IA");
 
+           Label lblNome = new Label("Nome do arquivo:");
+           TextField txtNome = new TextField();
+           txtNome.setPromptText("ex: correcao_codigo");
 
-    public void start(Stage primaryStage) {
-        // ======= Tela 1: Envio de Código =======
-        TextArea codeArea = new TextArea();
-        codeArea.setPrefSize(600, 400);
-        codeArea.setPromptText("Digite seu código Java aqui...");
+           Button btnConfirmar = new Button("Confirmar");
 
-        Button btnSendCode = new Button("Enviar código");
+           btnConfirmar.setOnAction(evt -> {
+               String titulo = txtNome.getText().trim();
+               String pergunta = codeArea.getText(); 
+               String respostaIA = answerArea.getText();
 
-        VBox tela1 = new VBox(15, new Label("Digite seu código abaixo:"), codeArea, btnSendCode);
-        tela1.setPadding(new Insets(20));
+               if (!titulo.isEmpty() && !respostaIA.isEmpty()) {
 
-        Scene scene1 = new Scene(tela1, 800, 600);
-        scene1.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+                   HistoricoDAO historicoDAO = new HistoricoDAO();
+                   historicoDAO.salvarHistorico(titulo, pergunta, respostaIA); 
 
-        // ======= Tela 2: Resposta da IA =======
-        TextArea answerArea = new TextArea();
-        answerArea.setPrefSize(600, 400);
-        answerArea.setEditable(false);
+                   System.out.println("Resposta salva no banco de dados com o título: " + titulo);
 
-        Button salvarButton = new Button("Salvar resposta");
-        Button voltarButton = new Button("Voltar");
-
-        Label tituloResposta = new Label("Resposta da IA:");
-        dataHoraLabel.setStyle("-fx-text-fill: #999999; -fx-font-size: 12px;");
-
-        VBox tela2 = new VBox(15,
-            tituloResposta,
-            dataHoraLabel,
-
-            answerArea,
-            salvarButton,
-            voltarButton
-        );
-        tela2.setPadding(new Insets(20));
-
-
-        Scene scene2 = new Scene(tela2, 800, 600);
-        scene2.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-
-        // ======= Ações dos botões =======
-        btnSendCode.setOnAction(event -> {
-            String codigo = codeArea.getText().trim();
-
-            if (codigo.isEmpty()) {
-                answerArea.setText("Por favor, digite algum código.");
-            } else {
-                Texto texto1 = new Texto();
-                texto1.setTexto(codigo);
-
-                String resposta = IA.respostaIA(texto1.getTexto());
-                answerArea.setText(resposta);
-
-                // Atualiza data/hora
-                dataFormatada = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
-                dataHoraLabel.setText("Data: " + dataFormatada);
-            }
-
-
-            primaryStage.setScene(scene2);
-        });
-
-        voltarButton.setOnAction(e -> primaryStage.setScene(scene1));
-
-        salvarButton.setOnAction(e -> {
-
-            Stage salvarStage = new Stage();
-            salvarStage.initModality(Modality.APPLICATION_MODAL);
-            salvarStage.setTitle("Salvar resposta da IA");
-
-            Label lblNome = new Label("Nome do arquivo:");
-            TextField txtNome = new TextField();
-            txtNome.setPromptText("ex: correcao_codigo");
-
-            Button btnConfirmar = new Button("Confirmar");
-
-            btnConfirmar.setOnAction(evt -> {
-                String titulo = txtNome.getText().trim();
-                String pergunta = codeArea.getText(); 
-                String respostaIA = answerArea.getText();
-
-                if (!titulo.isEmpty() && !respostaIA.isEmpty()) {
-
-                    HistoricoDAO historicoDAO = new HistoricoDAO();
-                    historicoDAO.salvarHistorico(titulo, pergunta, respostaIA); 
-
-                    System.out.println("Resposta salva no banco de dados com o título: " + titulo);
-
-                    
-                    salvarStage.close();
-                } else {
-                    System.out.println("Título ou resposta não podem estar vazios.");
-                }
-            });
-
-
-            VBox layoutSalvar = new VBox(10, lblNome, txtNome, btnConfirmar);
-            layoutSalvar.setPadding(new Insets(20));
-            layoutSalvar.setAlignment(Pos.CENTER);
-
-            Scene salvarScene = new Scene(layoutSalvar, 300, 150);
-            salvarScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-
-            salvarStage.setScene(salvarScene);
-            salvarStage.showAndWait();
-
-        });
-
-        // ======= Configuração da Janela =======
-        primaryStage.setTitle("DeepCode");
-        primaryStage.setScene(scene1);
-        primaryStage.show();
-    }
-
-    public static void main(String[] args) {
-        launch(args);
-    }
+                   
+                   salvarStage.close();
+               } else {
+                   System.out.println("Título ou resposta não podem estar vazios.");
+               }
+           });
+           VBox salvarLayout = new VBox(10, lblNome, txtNome, btnConfirmar);
+           salvarLayout.setPadding(new Insets(20));
+           salvarLayout.setAlignment(Pos.CENTER);
+           Scene salvarScene = new Scene(salvarLayout, 300, 150);
+           salvarScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+           salvarStage.setScene(salvarScene);
+           salvarStage.showAndWait();
+       });
+       btnMenu1.setOnAction(e -> toggleSidebar(layout1));
+       btnMenu2.setOnAction(e -> toggleSidebar(layout2));
+       // ========== Inicia a Aplicação ==========
+       primaryStage.setTitle("DeepCode");
+       primaryStage.setScene(scene1);
+       primaryStage.show();
+   }
+   public static void main(String[] args) {
+       launch(args);
+   }
 }

@@ -1,0 +1,43 @@
+.root {
+    -fx-background-color: #0d0d0d;
+}
+
+.text-area {
+    -fx-background-color: #000000;
+    -fx-control-inner-background: #000000;
+    -fx-text-fill: #d6b3ff;
+    -fx-highlight-fill: #6a0dad;
+    -fx-highlight-text-fill: white;
+    -fx-border-color: #a64aff;
+    -fx-border-radius: 8px;
+    -fx-font-size: 14px;
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-padding: 10px;
+}
+
+
+.text-area:readonly {
+    -fx-border-color: #6a0dad;
+    -fx-text-fill: #cccccc;
+}
+
+
+.button {
+    -fx-background-color: #a64aff;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+    -fx-padding: 8px 16px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.4), 6, 0, 0, 2);
+
+}
+
+.button:hover {
+    -fx-background-color: #c084ff;
+}
+
+.label {
+    -fx-text-fill: #d6b3ff;
+    -fx-font-size: 16px;
+}
