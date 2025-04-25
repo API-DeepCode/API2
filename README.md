@@ -111,6 +111,7 @@ Objetivos secundários incluem:
 | Baixa | Como usuário, quero poder acessar essas sugestões armazenadas. | 3 | 3 |
 | Baixa | Como usuário, quero um tutorial para a instalação do projeto. | 2 | 3 |
 
+# Como baixar o site
 
 
 # Autores
