@@ -17,7 +17,7 @@ Projeto baseado na metodologia ágil SCRUM, procurando desenvolver a Proatividad
 * [Tecnologias Utilizadas](#objetivo-do-projeto)
 * [Funcionalidades e registros (vídeos e apresentações) das sprints](#funcionalidades-e-registros-(vídeos-e-apresentações)-das-sprints)
 * [Backlog do produto](#Backlog-do-produto)
-* [Como baixar o site](#Como-baixar-o-site)
+* [Como baixar o site](#Como-rodar-a-IDE)
 * [Competências desenvolvidas](#competências-desenvolvidas)
 * [Autores](#autores)
 
@@ -111,7 +111,8 @@ Objetivos secundários incluem:
 | Baixa | Como usuário, quero poder acessar essas sugestões armazenadas. | 3 | 3 |
 | Baixa | Como usuário, quero um tutorial para a instalação do projeto. | 2 | 3 |
 
-# Como baixar o site
+# Como Rodar a IDE
+
 
 
 # Autores
