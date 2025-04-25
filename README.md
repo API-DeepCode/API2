@@ -112,7 +112,7 @@ Objetivos secundários incluem:
 | Baixa | Como usuário, quero um tutorial para a instalação do projeto. | 2 | 3 |
 
 # Como Rodar a IDE
-`-Para rodar e preciso usar o Comando no CMD: java --module-path "Colocar a Localização o seu javafx-sdk-24.0.1\lib " --add-modules javafx.controls,javafx.fxml -jar Localização do seu jar que esta na pasta da IDE Exemplo: D:\API\API_2\Branchie\API2\DeepCode.jar `
+- `Para rodar e preciso usar o Comando no CMD: java --module-path "Colocar a Localização o seu javafx-sdk-24.0.1\lib " --add-modules javafx.controls,javafx.fxml -jar Localização do seu jar que esta na pasta da IDE Exemplo: D:\API\API_2\Branchie\API2\DeepCode.jar `
 
 
 # Autores
