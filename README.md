@@ -115,6 +115,9 @@ Objetivos secundários incluem:
 - `Para rodar e preciso usar o Comando no CMD: java --module-path "Colocar a Localização o seu javafx-sdk-24.0.1\lib " --add-modules javafx.controls,javafx.fxml -jar Localização do seu jar que esta na pasta da IDE Exemplo: D:\API\API_2\Branchie\API2\DeepCode.jar `
 - Exemplo do que eu faço no meu computador: java --module-path "C:\Users\gutib\Downloads\javafx-sdk-24.0.1\lib" --add-modules javafx.controls,javafx.fxml -jar D:\API\API_2\Branchie\API2\DeepCode.jar
 
+# Como baixar a IDE (Para DEV's)
+- ` https://www.youtube.com/watch?v=vB7EBUyKuwA `
+
 
 # Autores
 <div align="center">
