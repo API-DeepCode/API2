@@ -14,9 +14,10 @@ Projeto baseado na metodologia ágil SCRUM, procurando desenvolver a Proatividad
 
 # Índice
 * [Objetivo do Projeto](#objetivo-do-projeto)
+* [Tecnologias Utilizadas](#objetivo-do-projeto)
 * [Funcionalidades e registros (vídeos e apresentações) das sprints](#funcionalidades-e-registros-(vídeos-e-apresentações)-das-sprints)
 * [Backlog do produto](#Backlog-do-produto)
-* [Como baixar o site](#Como-baixar-o-site)
+* [Como rodar a IDE](#Como-rodar-a-IDE)
 * [Competências desenvolvidas](#competências-desenvolvidas)
 * [Autores](#autores)
 
@@ -46,22 +47,22 @@ Projeto pedagógico alicerçado na Metodologia API para ensino-aprendizado focad
     <tr>
       <td>Sprint 01 Review</td>
       <td>31/03/25 a 04/04/25</td>
-      <td>A fazer</td>
+      <td>Concluído</td>
     </tr>
     <tr>
       <td>Sprint 02</td>
       <td>07/04/25 a 27/04/25</td>
-      <td>Em progresso</td>
+      <td>Concluído</td>
     </tr>
     <tr>
       <td>Sprint 02 Review</td>
       <td>28/04/25 a 02/05/25</td>
-      <td>A fazer</td>
+      <td>Concluído</td>
     </tr>
     <tr>
       <td>Sprint 03</td>
       <td>05/05/25 a 25/05/25</td>
-      <td>A fazer</td>
+      <td>Em andamento</td>
     </tr>
     <tr>
       <td>Sprint 03 Review</td>
@@ -110,6 +111,12 @@ Objetivos secundários incluem:
 | Baixa | Como usuário, quero poder acessar essas sugestões armazenadas. | 3 | 3 |
 | Baixa | Como usuário, quero um tutorial para a instalação do projeto. | 2 | 3 |
 
+# Como Rodar a IDE
+- `Para rodar e preciso usar o Comando no CMD: java --module-path "Colocar a Localização o seu javafx-sdk-24.0.1\lib " --add-modules javafx.controls,javafx.fxml -jar Localização do seu jar que esta na pasta da IDE Exemplo: D:\API\API_2\Branchie\API2\DeepCode.jar `
+- Exemplo do que eu faço no meu computador: java --module-path "C:\Users\gutib\Downloads\javafx-sdk-24.0.1\lib" --add-modules javafx.controls,javafx.fxml -jar D:\API\API_2\Branchie\API2\DeepCode.jar
+
+# Como baixar a IDE (Para DEV's)
+- ` https://www.youtube.com/watch?v=vB7EBUyKuwA `
 
 
 # Autores
