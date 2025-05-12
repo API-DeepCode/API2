@@ -1,13 +1,13 @@
-package application;
+package factory;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionFactory {
-    private static final String URL = "jdbc:mysql://localhost:3306/bdDeepCode?useSSL=false&serverTimezone=UTC";
+    private static final String URL = "jdbc:mysql://localhost:3306/bdDeepCode";
     private static final String USER = "root";
-    private static final String PASSWORD = "fatec";
+    private static final String PASSWORD = "aaaa"; //Para cada usuário haverá uma senha distinta.
 
     public static Connection getConnection() {
         try {
@@ -18,4 +18,3 @@ public class ConnectionFactory {
         }
     }
 }
-

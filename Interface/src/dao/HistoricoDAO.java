@@ -1,10 +1,11 @@
-package application;
+package dao;
 
-import application.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.time.LocalDate;
+
+import factory.ConnectionFactory;
 
 public class HistoricoDAO {
 
@@ -25,4 +26,26 @@ public class HistoricoDAO {
             System.out.println("Erro ao salvar histórico: " + e.getMessage());
         }
     }
+    
+    
+    public void excluirHistoricoPorTitulo(String titulo) {
+        String sql = "DELETE FROM historico WHERE titulo = ?";
+        try (Connection conn = ConnectionFactory.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, titulo);
+            int linhasAfetadas = stmt.executeUpdate();
+
+            if (linhasAfetadas > 0) {
+                System.out.println("Histórico com título '" + titulo + "' excluído com sucesso.");
+            } else {
+                System.out.println("Nenhum histórico encontrado com esse título.");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Erro ao excluir histórico: " + e.getMessage());
+        }
+    }
+    
+    
 }
