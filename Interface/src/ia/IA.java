@@ -1,4 +1,4 @@
-package application;
+package ia;
 
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -21,7 +21,7 @@ public class IA {
 
             // Criando o JSON com o modelo e o prompt
             JSONObject json = new JSONObject();
-            json.put("model", "qwen2.5-coder:1.5b"); // Nome do modelo que criamos. OBS: o modelo será diferente para cada usuário, segundo o LLM que escolher. Sugerimos que assista ao tutorial disponível no GitHub.
+            json.put("model", "meu_qwen"); // Nome do modelo que criamos. OBS: o modelo será diferente para cada usuário, segundo o LLM que escolher. Sugerimos que assista ao tutorial disponível no GitHub.
             json.put("prompt", prompt);
             json.put("stream", false);
 
@@ -46,7 +46,7 @@ public class IA {
     }
 
     public static String respostaIA(String codigo) {
-    	String resposta = consultarOllama("Corrija este código em Python:\n" + codigo);
+    	String resposta = consultarOllama(codigo);
     	return resposta;
     }
 }
