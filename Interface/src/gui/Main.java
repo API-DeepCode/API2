@@ -1,4 +1,5 @@
-package application;
+package gui;
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -7,11 +8,17 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.Texto;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+
+import dao.HistoricoDAO;
+import ia.IA;
+
 public class Main extends Application {
    private VBox bancoDeDadosSidebar;
    private boolean sidebarVisivel = false;
@@ -73,8 +80,23 @@ public class Main extends Application {
        Button btnMenu2 = new Button("☰");
        btnMenu2.setStyle("-fx-font-size: 20px; -fx-background-color: transparent; -fx-text-fill: white;");
        Label dataHoraLabel = new Label();
+       
+       Button btnNovaResposta = new Button("Gerar nova resposta"); //Criação do botão para enviar uma nova resposta.
+
+       btnNovaResposta.setOnAction(e -> {
+           String codigo = codeArea.getText().trim(); // pega o código novamente
+           Texto texto = new Texto();
+           texto.setTexto(codigo);
+           String novaResposta = IA.respostaIA(texto.getTexto()); // chama a IA de novo
+
+           answerArea.setText(novaResposta); // mostra nova resposta
+           dataFormatada = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
+           dataHoraLabel.setText("Data: " + dataFormatada);
+       });
+
+       
        dataHoraLabel.setStyle("-fx-text-fill: #999999; -fx-font-size: 12px;");
-       VBox center2 = new VBox(10, new Label("Resposta da IA:"), dataHoraLabel, answerArea, btnSalvar, btnVoltar);
+       VBox center2 = new VBox(10, new Label("Resposta da IA:"), dataHoraLabel, answerArea, btnNovaResposta, btnSalvar, btnVoltar);
        center2.setPadding(new Insets(20));
        BorderPane layout2 = new BorderPane();
        layout2.setTop(new HBox(btnMenu2));
@@ -110,6 +132,20 @@ public class Main extends Application {
            txtNome.setPromptText("ex: correcao_codigo");
 
            Button btnConfirmar = new Button("Confirmar");
+           
+           Button btnExcluir = new Button("Excluir resposta");
+
+           btnExcluir.setOnAction(evt -> {
+               String titulo = txtNome.getText().trim();
+
+               if (!titulo.isEmpty()) {
+                   HistoricoDAO dao = new HistoricoDAO();
+                   dao.excluirHistoricoPorTitulo(titulo);
+               } else {
+                   System.out.println("Digite o título da resposta a ser excluída.");
+               }
+           });
+
 
            btnConfirmar.setOnAction(evt -> {
                String titulo = txtNome.getText().trim();
@@ -129,7 +165,9 @@ public class Main extends Application {
                    System.out.println("Título ou resposta não podem estar vazios.");
                }
            });
-           VBox salvarLayout = new VBox(10, lblNome, txtNome, btnConfirmar);
+           
+           
+           VBox salvarLayout = new VBox(10, lblNome, txtNome, btnConfirmar, btnExcluir);
            salvarLayout.setPadding(new Insets(20));
            salvarLayout.setAlignment(Pos.CENTER);
            Scene salvarScene = new Scene(salvarLayout, 300, 150);
@@ -137,6 +175,7 @@ public class Main extends Application {
            salvarStage.setScene(salvarScene);
            salvarStage.showAndWait();
        });
+      
        btnMenu1.setOnAction(e -> toggleSidebar(layout1));
        btnMenu2.setOnAction(e -> toggleSidebar(layout2));
        // ========== Inicia a Aplicação ==========

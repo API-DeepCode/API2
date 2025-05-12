@@ -1,4 +1,4 @@
-package application;
+package ia;
 
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -46,7 +46,7 @@ public class IA {
     }
 
     public static String respostaIA(String codigo) {
-    	String resposta = consultarOllama("Corrija este código em Python:\n" + codigo);
+    	String resposta = consultarOllama(codigo);
     	return resposta;
     }
 }
