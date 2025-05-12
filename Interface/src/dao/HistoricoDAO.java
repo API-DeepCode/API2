@@ -1,10 +1,11 @@
-package application;
+package dao;
 
-import application.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.time.LocalDate;
+
+import factory.ConnectionFactory;
 
 public class HistoricoDAO {
 

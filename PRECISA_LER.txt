@@ -1,0 +1,7 @@
+Algumas mudanças precisam ser feitas antes de conseguir rodar o projeto:
+
+- Adicione suas próprias bibliotecas se algumas delas não estiverem no projeto
+
+- no arquivo "Interface/src/factory/ConnectionFactory.java", na linha 10, mude a senha do SQL
+
+- no arquivo "Interface/src/ia/IA.java", na linha 24, mude o nome da IA no lugar do "meu_qwen" caso for diferente
