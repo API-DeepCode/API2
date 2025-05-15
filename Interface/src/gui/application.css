@@ -1,43 +1,68 @@
 .root {
-    -fx-background-color: #0d0d0d;
+    -fx-background-color: linear-gradient(to bottom, #4b0082, #1a1a1a);
+    -fx-font-family: "Segoe UI Emoji", "Noto Color Emoji", "Arial Unicode MS", sans-serif;
 }
 
 .text-area {
-    -fx-background-color: #000000;
-    -fx-control-inner-background: #000000;
-    -fx-text-fill: #d6b3ff;
+    -fx-background-color: linear-gradient(to bottom, #4b0082, #1a1a1a); 
+    -fx-control-inner-background: #1a1a1a;
+    -fx-text-fill: #ffffff;
     -fx-highlight-fill: #6a0dad;
     -fx-highlight-text-fill: white;
     -fx-border-color: #a64aff;
-    -fx-border-radius: 8px;
-    -fx-font-size: 14px;
-    -fx-font-family: "Consolas", "Courier New", monospace;
-    -fx-padding: 10px;
+    -fx-border-radius: 10px;
+    -fx-font-size: 16px;
+    -fx-padding: 6px;
 }
-
-
-.text-area:readonly {
-    -fx-border-color: #6a0dad;
-    -fx-text-fill: #cccccc;
-}
-
 
 .button {
-    -fx-background-color: #a64aff;
+    -fx-background-color: linear-gradient(to right, #4b0082, #6a0dad);
     -fx-text-fill: white;
     -fx-font-size: 14px;
-    -fx-background-radius: 8px;
+    -fx-background-radius: 10px;
     -fx-cursor: hand;
     -fx-padding: 8px 16px;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.4), 6, 0, 0, 2);
-
 }
 
 .button:hover {
-    -fx-background-color: #c084ff;
+    -fx-background-color: linear-gradient(to right, #6a0dad, #8000ff);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
 }
 
 .label {
     -fx-text-fill: #d6b3ff;
     -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.4), 5, 0, 0, 2);
+}
+.vbox {
+    -fx-background-color: transparent;
+    -fx-border-color: #6a0dad;
+    -fx-border-radius: 10px;
+    -fx-padding: 15px;
+}
+.sidebar {
+    -fx-background-color: linear-gradient(to bottom, #2b003d, #0d0d0d);
+    -fx-padding: 15px;
+    -fx-spacing: 10px;
+    -fx-pref-width: 250px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 8, 0, 0, 2);
+    -fx-background-radius: 0 10px 10px 0;
+}
+
+.sidebar .label {
+    -fx-text-fill: #d6b3ff;
+    -fx-font-size: 15px;
+    -fx-padding: 5px;
+    -fx-background-radius: 6px;
+}
+
+.titulo-topo {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-padding: 8px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 6, 0, 0, 2);
 }
