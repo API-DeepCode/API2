@@ -18,6 +18,9 @@ import ia.IA;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -28,6 +31,10 @@ public class Main extends Application {
     private double larguraPadrao = 850;
     private double alturaPadrao = 700;
     private String dataFormatada = "";
+    private VBox listaArquivosBox;
+    private TextArea areaResposta;
+    private HistoricoDAO historicoDAO = new HistoricoDAO();
+
 
     private Label statusLabel = new Label("🔍 Status: Aguardando código...");
 
@@ -58,11 +65,10 @@ public class Main extends Application {
         filtroField.setPromptText("Filtrar por nome...");
         filtroField.setMaxWidth(Double.MAX_VALUE);
 
-        VBox listaArquivosBox = new VBox(5);
+        listaArquivosBox = new VBox(5);
 
-        List<String> nomesArquivos = new ArrayList<>(Arrays.asList(
-            "resposta_1.txt", "resposta_2.txt", "resposta_3.txt", "resposta_4.txt", "teste"
-        ));
+        List<String> nomesArquivos = historicoDAO.listarNomesRespostas(); // dinâmico
+
 
         List<Label> labelsArquivos = new ArrayList<>();
         for (String nome : nomesArquivos) {
@@ -232,5 +238,23 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-}
+    
+    //
+    // //
+    //
+    private void atualizarSidebar() {
+        listaArquivosBox.getChildren().clear();
+        List<String> nomes = historicoDAO.listarNomesRespostas();
+        for (String nome : nomes) {
+            Label label = new Label(nome);
+            label.getStyleClass().add("label");
+            label.setOnMouseClicked((MouseEvent event) -> {
+                String conteudo = historicoDAO.buscarConteudoPorNome(nome);
+                areaResposta.setText(conteudo);
+            });
+            listaArquivosBox.getChildren().add(label);
+        }
+    }
 
+    
+}
