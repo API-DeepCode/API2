@@ -20,4 +20,31 @@
 		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/img/copy.png</name>
+			<type>1</type>
+			<location>C:/Users/wmdna/Downloads/copy.png</location>
+		</link>
+		<link>
+			<name>src/img/folder.png</name>
+			<type>1</type>
+			<location>C:/Users/wmdna/Downloads/folder.png</location>
+		</link>
+		<link>
+			<name>src/img/home.png</name>
+			<type>1</type>
+			<location>C:/Users/wmdna/Downloads/home.png</location>
+		</link>
+		<link>
+			<name>src/img/left_arrow.png</name>
+			<type>1</type>
+			<location>C:/Users/wmdna/Downloads/left_arrow.png</location>
+		</link>
+		<link>
+			<name>src/img/right_arrow.png</name>
+			<type>1</type>
+			<location>C:/Users/wmdna/Downloads/right_arrow.png</location>
+		</link>
+	</linkedResources>
 </projectDescription>
