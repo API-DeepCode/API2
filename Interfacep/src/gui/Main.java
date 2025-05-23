@@ -18,9 +18,6 @@ import ia.IA;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -31,10 +28,6 @@ public class Main extends Application {
     private double larguraPadrao = 850;
     private double alturaPadrao = 700;
     private String dataFormatada = "";
-    private VBox listaArquivosBox;
-    private TextArea areaResposta;
-    private HistoricoDAO historicoDAO = new HistoricoDAO();
-
 
     private Label statusLabel = new Label("🔍 Status: Aguardando código...");
 
@@ -65,28 +58,36 @@ public class Main extends Application {
         filtroField.setPromptText("Filtrar por nome...");
         filtroField.setMaxWidth(Double.MAX_VALUE);
 
-        listaArquivosBox = new VBox(5);
+        VBox listaArquivosBox = new VBox(5);
 
-        List<String> nomesArquivos = historicoDAO.listarNomesRespostas(); // dinâmico
+        List<Button> botoesArquivos = new ArrayList<>();
+        try {
+            HistoricoDAO dao = new HistoricoDAO();
+            List<String> titulos = dao.listarTitulosSalvos();
+            for (String nome : titulos) {
+                Button btn = new Button(nome);
+                btn.setMaxWidth(Double.MAX_VALUE);
+                btn.getStyleClass().add("botao-arquivo");
 
+                // 🔽 Aqui está a novidade: ação ao clicar no botão
+                btn.setOnAction(event -> BuscandoHistorico(nome));
 
-        List<Label> labelsArquivos = new ArrayList<>();
-        for (String nome : nomesArquivos) {
-            Label label = new Label(nome);
-            label.getStyleClass().add("label");
-            labelsArquivos.add(label);
+                botoesArquivos.add(btn);
+            }
+        } catch (Exception e) {
+            System.err.println("Erro ao carregar títulos do banco de dados: " + e.getMessage());
         }
 
-        listaArquivosBox.getChildren().addAll(labelsArquivos);
+        listaArquivosBox.getChildren().addAll(botoesArquivos);
 
         filtroField.textProperty().addListener((obs, oldVal, newVal) -> {
             listaArquivosBox.getChildren().clear();
             if (newVal == null || newVal.isEmpty()) {
-                listaArquivosBox.getChildren().addAll(labelsArquivos);
+                listaArquivosBox.getChildren().addAll(botoesArquivos);
             } else {
-                for (Label label : labelsArquivos) {
-                    if (label.getText().toLowerCase().contains(newVal.toLowerCase())) {
-                        listaArquivosBox.getChildren().add(label);
+                for (Button btn : botoesArquivos) {
+                    if (btn.getText().toLowerCase().contains(newVal.toLowerCase())) {
+                        listaArquivosBox.getChildren().add(btn);
                     }
                 }
             }
@@ -94,6 +95,41 @@ public class Main extends Application {
 
         sidebar.getChildren().addAll(titulo, filtroField, listaArquivosBox);
         return sidebar;
+    }
+    
+    private void BuscandoHistorico(String titulo) {
+        HistoricoDAO dao = new HistoricoDAO();
+        String pergunta = dao.buscarPerguntaPorTitulo(titulo);
+        String resposta = dao.buscarRespostaPorTitulo(titulo);
+
+        if (pergunta == null) {
+            pergunta = "❌ Pergunta não encontrada.";
+        }
+        if (resposta == null) {
+            resposta = "❌ Resposta não encontrada.";
+        }
+        Stage janela = new Stage();
+        janela.initModality(Modality.APPLICATION_MODAL);
+        janela.setTitle("📄 Histórico: " + titulo);
+
+        Label labelPergunta = new Label("📋 Pergunta:");
+        TextArea textAreaPergunta = new TextArea(pergunta);
+        textAreaPergunta.setEditable(false);
+        textAreaPergunta.setWrapText(true);
+
+        Label labelResposta = new Label("🤖 Resposta da IA:");
+        TextArea textAreaResposta = new TextArea(resposta);
+        textAreaResposta.setEditable(false);
+        textAreaResposta.setWrapText(true);
+
+        VBox layout = new VBox(10, labelPergunta, textAreaPergunta, labelResposta, textAreaResposta);
+        layout.setPadding(new Insets(20));
+        layout.setAlignment(Pos.CENTER);
+
+        Scene scene = new Scene(layout, 600, 400);
+        scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+        janela.setScene(scene);
+        janela.showAndWait();
     }
 
     @Override
@@ -163,7 +199,6 @@ public class Main extends Application {
         Scene scene2 = new Scene(layout2, larguraPadrao, alturaPadrao);
         scene2.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 
-        // Ações principais
         btnSendCode.setOnAction(e -> {
             String codigo = codeArea.getText().trim();
             Texto texto = new Texto();
@@ -239,22 +274,5 @@ public class Main extends Application {
         launch(args);
     }
     
-    //
-    // //
-    //
-    private void atualizarSidebar() {
-        listaArquivosBox.getChildren().clear();
-        List<String> nomes = historicoDAO.listarNomesRespostas();
-        for (String nome : nomes) {
-            Label label = new Label(nome);
-            label.getStyleClass().add("label");
-            label.setOnMouseClicked((MouseEvent event) -> {
-                String conteudo = historicoDAO.buscarConteudoPorNome(nome);
-                areaResposta.setText(conteudo);
-            });
-            listaArquivosBox.getChildren().add(label);
-        }
-    }
-
     
 }

@@ -8,10 +8,6 @@ import java.util.List;
 import java.util.ArrayList;
 import java.sql.Date;
 import java.time.LocalDate;
-
-
-
-
 import factory.ConnectionFactory;
 
 public class HistoricoDAO {
@@ -33,34 +29,16 @@ public class HistoricoDAO {
             System.out.println("Erro ao salvar histórico: " + e.getMessage());
         }
     }
-    
-    //
-    // //
-    //
-    public List<String> listarNomesRespostas() {
-        List<String> nomes = new ArrayList<>();
-        try (Connection conn = ConnectionFactory.getConnection()) {
-            String sql = "SELECT titulo FROM historico";
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {
-                nomes.add(rs.getString("titulo"));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return nomes;
-    }
 
     public String buscarConteudoPorNome(String nome) {
         String conteudo = null;
         try (Connection conn = ConnectionFactory.getConnection()) {
-            String sql = "SELECT texto FROM historico WHERE titulo = ?";
+            String sql = "SELECT respostaIA FROM historico WHERE titulo = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, nome);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                conteudo = rs.getString("texto");
+                conteudo = rs.getString("respostaIA");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -68,11 +46,6 @@ public class HistoricoDAO {
         return conteudo;
     }
 
-    //
-    // //
-    //
-    
-    
     public void excluirHistoricoPorTitulo(String titulo) {
         String sql = "DELETE FROM historico WHERE titulo = ?";
         try (Connection conn = ConnectionFactory.getConnection();
@@ -90,6 +63,58 @@ public class HistoricoDAO {
         } catch (Exception e) {
             System.out.println("Erro ao excluir histórico: " + e.getMessage());
         }
+    }
+    
+    public List<String> listarTitulosSalvos() {
+        List<String> titulos = new ArrayList<>();
+        String sql = "SELECT titulo FROM historico ORDER BY id DESC";
+        try (Connection conn = ConnectionFactory.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                String titulo = rs.getString("titulo");
+                if (titulo != null && !titulo.trim().isEmpty()) {
+                    titulos.add(titulo);
+                }
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Erro ao listar títulos do histórico: " + e.getMessage());
+        }
+        return titulos;
+    }
+    public String buscarPerguntaPorTitulo(String titulo) {
+        String pergunta = null;
+        String sql = "SELECT pergunta FROM historico WHERE titulo = ?";
+        try (Connection conn = ConnectionFactory.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, titulo);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                pergunta = rs.getString("pergunta");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Erro ao buscar pergunta: " + e.getMessage());
+        }
+        return pergunta;
+    }
+    
+    public String buscarRespostaPorTitulo(String titulo) {
+        String resposta = null;
+        String sql = "SELECT respostaIA FROM historico WHERE titulo = ?";
+        try (Connection conn = ConnectionFactory.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, titulo);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                resposta = rs.getString("respostaIA");
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro ao buscar resposta: " + e.getMessage());
+        }
+        return resposta;
     }
     
     
