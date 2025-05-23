@@ -21,7 +21,7 @@ public class IA {
 
             // Criando o JSON com o modelo e o prompt
             JSONObject json = new JSONObject();
-            json.put("model", "Deep_codeIA"); // Nome do modelo que criamos. OBS: o modelo será diferente para cada usuário, segundo o LLM que escolher. Sugerimos que assista ao tutorial disponível no GitHub.
+            json.put("model", "meu_qwen"); // Nome do modelo que criamos. OBS: o modelo será diferente para cada usuário, segundo o LLM que escolher. Sugerimos que assista ao tutorial disponível no GitHub.
             json.put("prompt", prompt);
             json.put("stream", false);
 
