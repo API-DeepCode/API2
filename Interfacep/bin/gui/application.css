@@ -67,3 +67,22 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 6, 0, 0, 2);
 }
 
+/* Estilo do botão de excluir */
+.button-excluir {
+    -fx-background-color: #ff4444;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+    -fx-padding: 8px 15px;
+    -fx-cursor: hand;
+}
+
+.button-excluir:hover {
+    -fx-background-color: #ff0000;
+    -fx-effect: dropshadow(three-pass-box, rgba(255,0,0,0.5), 5, 0, 0, 1);
+}
+
+/* Estilo do separador */
+.separator {
+    -fx-padding: 5px 0;
+}
