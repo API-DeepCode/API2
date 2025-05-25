@@ -8,3 +8,5 @@ titulo varchar(255),
 pergunta TEXT,
 respostaIA TEXT,
 dataPergunta DATE);
+
+select * from historico;
