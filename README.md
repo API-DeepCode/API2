@@ -114,6 +114,7 @@ Objetivos secundários incluem:
 # Como Rodar a IDE
 - Instale o Java SDK 24 através desse link: https://www.oracle.com/java/technologies/downloads/#jdk24-windows
 - Execute o arquivo RunApplication.bat
+- Modifique o nome e a senha do seu SQL para "root", caso não tenha o MySQL instalado: https://dev.mysql.com/downloads/installer/
 
 # Como baixar a IDE (Para DEV's)
 - ` https://www.youtube.com/watch?v=vB7EBUyKuwA `
