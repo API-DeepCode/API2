@@ -21,6 +21,13 @@ import java.util.List;
 import javafx.scene.Node;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Separator;
+import java.util.Optional;
+import javafx.application.Platform;
+import javafx.geometry.Pos;
+import javafx.scene.layout.HBox;
 
 public class Main extends Application {
     private VBox bancoDeDadosSidebar;
@@ -194,10 +201,12 @@ public class Main extends Application {
         if (resposta == null) {
             resposta = "❌ Resposta não encontrada.";
         }
+
         Stage janela = new Stage();
         janela.initModality(Modality.APPLICATION_MODAL);
         janela.setTitle("📄 Histórico: " + titulo);
 
+        // Elementos da janela
         Label labelPergunta = new Label("📋 Pergunta:");
         TextArea textAreaPergunta = new TextArea(pergunta);
         textAreaPergunta.setEditable(false);
@@ -208,14 +217,65 @@ public class Main extends Application {
         textAreaResposta.setEditable(false);
         textAreaResposta.setWrapText(true);
 
-        VBox layout = new VBox(10, labelPergunta, textAreaPergunta, labelResposta, textAreaResposta);
-        layout.setPadding(new Insets(20));
-        layout.setAlignment(Pos.CENTER);
+        // Botão de excluir - NOVO
+        Button btnExcluir = new Button("🗑 Excluir Este Histórico");
+        btnExcluir.getStyleClass().add("button-excluir");
+        btnExcluir.setOnAction(e -> {
+            // Janela de confirmação
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmação de Exclusão");
+            alert.setHeaderText("Você está prestes a excluir:");
+            alert.setContentText(titulo + "\n\nEsta ação não pode ser desfeita!");
+            
+            Optional<ButtonType> resultado = alert.showAndWait();
+            if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
+                try {
+                    // Executa a exclusão
+                    dao.excluirHistoricoPorTitulo(titulo);
+                    
+                    // Feedback visual
+                    statusLabel.setText("✅ Histórico '" + titulo + "' excluído!");
+                    
+                    // Fecha a janela atual
+                    janela.close();
+                    
+                    // Atualiza a sidebar
+                    atualizarSidebar();
+                } catch (Exception ex) {
+                    statusLabel.setText("❌ Erro ao excluir: " + ex.getMessage());
+                }
+            }
+        });
 
-        Scene scene = new Scene(layout, 600, 400);
+        // Layout organizado
+        HBox botoesLayout = new HBox(btnExcluir);
+        botoesLayout.setAlignment(Pos.CENTER_RIGHT);
+        botoesLayout.setPadding(new Insets(10, 0, 0, 0));
+
+        VBox layout = new VBox(15, 
+            labelPergunta, textAreaPergunta,
+            labelResposta, textAreaResposta,
+            new Separator(),
+            botoesLayout
+        );
+        layout.setPadding(new Insets(20));
+        layout.setAlignment(Pos.TOP_CENTER);
+
+        Scene scene = new Scene(layout, 650, 450);
         scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
         janela.setScene(scene);
         janela.showAndWait();
+    }
+
+    // Método auxiliar para atualizar a sidebar
+    private void atualizarSidebar() {
+        Platform.runLater(() -> {
+            bancoDeDadosSidebar = criarSidebar();
+            BorderPane rootLayout = (BorderPane) bancoDeDadosSidebar.getParent();
+            if (rootLayout != null) {
+                rootLayout.setLeft(bancoDeDadosSidebar);
+            }
+        });
     }
 
     @Override
@@ -324,8 +384,6 @@ public class Main extends Application {
                     HistoricoDAO dao = new HistoricoDAO();
                     dao.excluirHistoricoPorTitulo(titulo);
                     statusLabel.setText("🗑️ Resposta excluída do histórico.");
-                    bancoDeDadosSidebar = criarSidebar(); // Atualiza sidebar após exclusão (NOVO)
-                    if (sidebarVisivel) layout2.setLeft(bancoDeDadosSidebar);
                 }
             });
 
@@ -338,8 +396,6 @@ public class Main extends Application {
                     historicoDAO.salvarHistorico(titulo, pergunta, respostaIA);
                     salvarStage.close();
                     statusLabel.setText("💾 Resposta salva como: " + titulo);
-                    bancoDeDadosSidebar = criarSidebar(); // Atualiza sidebar após salvar (NOVO)
-                    if (sidebarVisivel) layout2.setLeft(bancoDeDadosSidebar);
                 }
             });
 
