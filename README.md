@@ -112,7 +112,7 @@ Objetivos secundários incluem:
 | Baixa | Como usuário, quero um tutorial para a instalação do projeto. | 2 | 3 |
 
 # Como Rodar a IDE
-- Instale o Java SDK através desse link: https://www.oracle.com/java/technologies/downloads/#jdk24-windows
+- Instale o Java SDK 24 através desse link: https://www.oracle.com/java/technologies/downloads/#jdk24-windows
 - Execute o arquivo RunApplication.bat
 
 # Como baixar a IDE (Para DEV's)
