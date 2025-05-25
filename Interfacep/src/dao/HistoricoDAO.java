@@ -117,5 +117,24 @@ public class HistoricoDAO {
         return resposta;
     }
     
+    public String[] buscarPerguntaRespostaPorNome(String nome) {
+        String[] conteudo = new String[2];
+        try (Connection conn = ConnectionFactory.getConnection()) {
+            String sql = "SELECT pergunta, respostaIA FROM historico WHERE titulo = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, nome);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                conteudo[0] = rs.getString("pergunta");
+                conteudo[1] = rs.getString("respostaIA");
+                return conteudo;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+  
+
     
 }
