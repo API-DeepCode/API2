@@ -18,7 +18,7 @@ import ia.IA;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+import javafx.scene.Node;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -28,6 +28,8 @@ public class Main extends Application {
     private double larguraPadrao = 850;
     private double alturaPadrao = 700;
     private String dataFormatada = "";
+    
+
 
     private Label statusLabel = new Label("🔍 Status: Aguardando código...");
 
@@ -54,48 +56,132 @@ public class Main extends Application {
         Label titulo = new Label("Respostas salvas:");
         titulo.getStyleClass().add("label");
 
+        // Botão de atualizar (NOVO)
+        Button btnAtualizar = new Button("🔄 Atualizar lista");
+        btnAtualizar.getStyleClass().add("button");
+        btnAtualizar.setMaxWidth(Double.MAX_VALUE);
+
         TextField filtroField = new TextField();
         filtroField.setPromptText("Filtrar por nome...");
         filtroField.setMaxWidth(Double.MAX_VALUE);
 
         VBox listaArquivosBox = new VBox(5);
 
-        List<Button> botoesArquivos = new ArrayList<>();
-        try {
-            HistoricoDAO dao = new HistoricoDAO();
-            List<String> titulos = dao.listarTitulosSalvos();
-            for (String nome : titulos) {
-                Button btn = new Button(nome);
-                btn.setMaxWidth(Double.MAX_VALUE);
-                btn.getStyleClass().add("botao-arquivo");
-
-                // 🔽 Aqui está a novidade: ação ao clicar no botão
-                btn.setOnAction(event -> BuscandoHistorico(nome));
-
-                botoesArquivos.add(btn);
+        // Método para carregar os botões dinamicamente (NOVO)
+        Runnable carregarBotoes = () -> {
+            listaArquivosBox.getChildren().clear();
+            try {
+                HistoricoDAO dao = new HistoricoDAO();
+                List<String> titulos = dao.listarTitulosSalvos();
+                for (String nome : titulos) {
+                    Button btn = new Button(nome);
+                    btn.setMaxWidth(Double.MAX_VALUE);
+                    btn.getStyleClass().add("botao-arquivo");
+                    btn.setOnAction(event -> BuscandoHistorico(nome));
+                    listaArquivosBox.getChildren().add(btn);
+                }
+            } catch (Exception e) {
+                System.err.println("Erro ao carregar títulos: " + e.getMessage());
             }
-        } catch (Exception e) {
-            System.err.println("Erro ao carregar títulos do banco de dados: " + e.getMessage());
-        }
+        };
 
-        listaArquivosBox.getChildren().addAll(botoesArquivos);
+        // Carrega os botões pela primeira vez
+        carregarBotoes.run();
 
+        // Atualiza a lista quando o botão é clicado (NOVO)
+        btnAtualizar.setOnAction(e -> {
+            carregarBotoes.run();
+            statusLabel.setText("🔄 Lista de respostas atualizada!");
+        });
+
+        // Filtro (mantido)
         filtroField.textProperty().addListener((obs, oldVal, newVal) -> {
             listaArquivosBox.getChildren().clear();
-            if (newVal == null || newVal.isEmpty()) {
-                listaArquivosBox.getChildren().addAll(botoesArquivos);
+            if (newVal.isEmpty()) {
+                carregarBotoes.run();
             } else {
-                for (Button btn : botoesArquivos) {
-                    if (btn.getText().toLowerCase().contains(newVal.toLowerCase())) {
-                        listaArquivosBox.getChildren().add(btn);
+                for (Node node : listaArquivosBox.getChildren()) {
+                    if (node instanceof Button) {
+                        Button btn = (Button) node;
+                        if (btn.getText().toLowerCase().contains(newVal.toLowerCase())) {
+                            listaArquivosBox.getChildren().add(btn);
+                        }
                     }
                 }
             }
         });
 
-        sidebar.getChildren().addAll(titulo, filtroField, listaArquivosBox);
+        sidebar.getChildren().addAll(titulo, btnAtualizar, filtroField, listaArquivosBox);
         return sidebar;
     }
+
+
+ 
+    private void atualizarListaArquivos(VBox listaContainer) {
+        listaContainer.getChildren().clear();
+        List<Button> botoesArquivos = new ArrayList<>();
+        
+        try {
+            HistoricoDAO dao = new HistoricoDAO();
+            List<String> titulos = dao.listarTitulosSalvos();
+            
+            for (String nome : titulos) {
+                Button btn = new Button(nome);
+                btn.setMaxWidth(Double.MAX_VALUE);
+                btn.getStyleClass().add("botao-arquivo");
+                btn.setOnAction(event -> BuscandoHistorico(nome));
+                botoesArquivos.add(btn);
+            }
+            
+            listaContainer.getChildren().addAll(botoesArquivos);
+        } catch (Exception e) {
+            System.err.println("Erro ao atualizar lista: " + e.getMessage());
+            
+            // Adiciona uma mensagem de erro na interface
+            Label erroLabel = new Label("Erro ao carregar dados");
+            erroLabel.getStyleClass().add("erro-label");
+            listaContainer.getChildren().add(erroLabel);
+        }
+    }
+
+
+    
+    private void showRespostaDialog(String titulo, String pergunta, String resposta) {
+        Stage dialog = new Stage();
+        dialog.initModality(Modality.APPLICATION_MODAL);
+        dialog.setTitle(titulo);
+
+        TextArea areaPergunta = new TextArea(pergunta);
+        areaPergunta.setEditable(false);
+        areaPergunta.setWrapText(true);
+        
+        TextArea areaResposta = new TextArea(resposta);
+        areaResposta.setEditable(false);
+        areaResposta.setWrapText(true);
+        
+        VBox layout = new VBox(10, 
+            new Label("Pergunta:"), areaPergunta,
+            new Label("Resposta:"), areaResposta,
+            new Button("Fechar") {{
+                setOnAction(e -> dialog.close());
+            }}
+        );
+        layout.setPadding(new Insets(15));
+
+        Scene scene = new Scene(layout, 600, 500);
+        scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+        dialog.setScene(scene);
+        dialog.showAndWait();
+    }
+ 
+
+    private void mostrarAlerta(String titulo, String mensagem) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(titulo);
+        alert.setContentText(mensagem);
+        alert.showAndWait();
+    }
+
     
     private void BuscandoHistorico(String titulo) {
         HistoricoDAO dao = new HistoricoDAO();
@@ -238,6 +324,8 @@ public class Main extends Application {
                     HistoricoDAO dao = new HistoricoDAO();
                     dao.excluirHistoricoPorTitulo(titulo);
                     statusLabel.setText("🗑️ Resposta excluída do histórico.");
+                    bancoDeDadosSidebar = criarSidebar(); // Atualiza sidebar após exclusão (NOVO)
+                    if (sidebarVisivel) layout2.setLeft(bancoDeDadosSidebar);
                 }
             });
 
@@ -250,6 +338,8 @@ public class Main extends Application {
                     historicoDAO.salvarHistorico(titulo, pergunta, respostaIA);
                     salvarStage.close();
                     statusLabel.setText("💾 Resposta salva como: " + titulo);
+                    bancoDeDadosSidebar = criarSidebar(); // Atualiza sidebar após salvar (NOVO)
+                    if (sidebarVisivel) layout2.setLeft(bancoDeDadosSidebar);
                 }
             });
 
