@@ -181,12 +181,12 @@ Objetivos secundários incluem:
       </tr>
       <tr>
         <td>Team Member</td>
-        <td>Josué Lopes</td>
+        <td>Josué Olopes</td>
         <td>
-          <a href="#">
+          <a href="https://www.linkedin.com/in/josué-da-cunha-olopes-08b493212/">
             <img src="https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white">
           </a>
-          <a href="#">
+          <a href="https://github.com/jo-olopes">
             <img src="https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white">
           </a>
         </td>
