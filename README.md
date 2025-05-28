@@ -90,7 +90,7 @@ Objetivos secundários incluem:
 # Tecnologias Utilizadas
 <br> 
 <p align = "center"> 
-<img src ="https://github.com/user-attachments/assets/393fdf29-ef52-4d56-9939-dd12e658067e">
+<img src ="https://github.com/user-attachments/assets/52571b1a-3ab6-406b-89bf-b313c8ff6788">
 </p>
 <br>
 
